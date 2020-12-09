@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="tank.js"></script>
+    <title>Tank</title>
+</head>
+<body onkeypress="mover()">
+
+<h2>Press A and D to move the tank and F to shoot<p>Press W and S to rotate the aim of tank</p></h2>
+    
+<div class="tank">
+        <div class="main" id="move">
+            <div class="back"></div>
+            <div class="iron"></div>
+            <div class="up" id="sar">
+                <div class="upp" id="">
+                    <div class="weapon"></div>
+                </div>
+                <div class="nul" id="aim">
+                    <div class="null"></div>
+                </div>
+            </div>
+            <img src="img/images.jpeg" alt="">
+            <img src="img/images.jpeg" alt="">
+            <img src="img/images.jpeg" alt="">
+            <img src="img/images.jpeg" alt="">
+        </div>
+    </div>
+    <div class="line"></div>
+</body>
+<script>
+var left = 50;
+function mover() {
+    if(event.key == "d") {
+        document.getElementById('move').style.left = left + "px";
+        document.getElementById('move').style.transform = "rotateY(0deg)";
+        left = left + 10;
+    }
+    if(event.key == "a") {
+        document.getElementById('move').style.left = left + "px";
+        document.getElementById('move').style.transform = "rotateY(180deg)";
+        left = left - 10;
+    }
+    if(event.key == "w") {
+        document.getElementById('aim').style.transform = "rotate(-20deg)";
+        document.getElementById('aim').style.top = "-25px";
+        document.getElementById('aim').style.left = "70px";
+    }
+    if(event.key == "s") {
+        document.getElementById('aim').style.transform = "rotate(0deg)";
+        document.getElementById('aim').style.top = "5px";
+        document.getElementById('aim').style.left = "80px";
+    }
+    if (event.key == "f") {
+        var audio = new Audio();
+        audio.src = 'granat2.mp3';
+        audio.autoplay = true;
+        audio = document.getElementById('sar');
+        audio.style.animation = "left 500ms";
+    }
+    if (event.key == "f") {
+        var audio = new Audio();
+        audio.src = 'granat2.mp3';
+        audio.autoplay = true;
+        audio = document.getElementById('sar');
+        audio.style.animation = "none";
+    }
+}
+</script>
+</html>
